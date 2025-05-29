@@ -21,8 +21,7 @@ interface DetailedTableProps {
 
 export function DetailedTable({ data }: DetailedTableProps) {
   const formatCurrency = (value: number) => {
-    const crores = value / 10000000; // Convert to crores
-    return `₹${crores.toFixed(4)} Cr`;
+    return `₹${value.toFixed(2)} Cr`;
   };
   
   const getRowVariant = (head: string) => {

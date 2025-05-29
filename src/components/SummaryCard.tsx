@@ -28,8 +28,7 @@ const badgeVariants = {
 
 export function SummaryCard({ title, value, icon: Icon, variant, description }: SummaryCardProps) {
   const formatInCrores = (value: number) => {
-    const crores = value / 10000000; // Convert to crores
-    return `₹${crores.toFixed(4)} Cr`;
+    return `₹${value.toFixed(2)} Cr`;
   };
 
   return (
