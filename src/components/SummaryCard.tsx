@@ -27,6 +27,11 @@ const badgeVariants = {
 };
 
 export function SummaryCard({ title, value, icon: Icon, variant, description }: SummaryCardProps) {
+  const formatInCrores = (value: number) => {
+    const crores = value / 10000000; // Convert to crores
+    return `₹${crores.toFixed(4)} Cr`;
+  };
+
   return (
     <Card className="relative overflow-hidden border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 bg-white/90 backdrop-blur-sm">
       <div className={cn("absolute inset-0 bg-gradient-to-br opacity-10", variantStyles[variant])} />
@@ -38,7 +43,7 @@ export function SummaryCard({ title, value, icon: Icon, variant, description }: 
       </CardHeader>
       <CardContent className="relative z-10">
         <div className="text-2xl font-bold text-gray-900">
-          ${value.toFixed(2)}
+          {formatInCrores(value)}
         </div>
         <Badge className={cn("mt-2 text-xs", badgeVariants[variant])}>
           {description}

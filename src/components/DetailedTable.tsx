@@ -20,7 +20,10 @@ interface DetailedTableProps {
 }
 
 export function DetailedTable({ data }: DetailedTableProps) {
-  const formatCurrency = (value: number) => `$${value.toFixed(2)}`;
+  const formatCurrency = (value: number) => {
+    const crores = value / 10000000; // Convert to crores
+    return `₹${crores.toFixed(4)} Cr`;
+  };
   
   const getRowVariant = (head: string) => {
     if (head === "Grand Total") return "bg-gradient-to-r from-blue-50 to-purple-50 font-bold";
@@ -52,14 +55,14 @@ export function DetailedTable({ data }: DetailedTableProps) {
             <TableHead className="font-bold text-gray-700 sticky left-0 bg-gray-50 z-10 min-w-[200px]">
               Description
             </TableHead>
-            <TableHead className="font-bold text-gray-700 text-center">Payable</TableHead>
-            <TableHead className="font-bold text-gray-700 text-center">Invoiced</TableHead>
-            <TableHead className="font-bold text-gray-700 text-center">Payment</TableHead>
-            <TableHead className="font-bold text-gray-700 text-center">TDS</TableHead>
-            <TableHead className="font-bold text-gray-700 text-center">Total Payment</TableHead>
-            <TableHead className="font-bold text-gray-700 text-center">Credit</TableHead>
-            <TableHead className="font-bold text-gray-700 text-center">Outstanding</TableHead>
-            <TableHead className="font-bold text-gray-700 text-center">Unbilled</TableHead>
+            <TableHead className="font-bold text-gray-700 text-center">Payable (₹ Cr)</TableHead>
+            <TableHead className="font-bold text-gray-700 text-center">Invoiced (₹ Cr)</TableHead>
+            <TableHead className="font-bold text-gray-700 text-center">Payment (₹ Cr)</TableHead>
+            <TableHead className="font-bold text-gray-700 text-center">TDS (₹ Cr)</TableHead>
+            <TableHead className="font-bold text-gray-700 text-center">Total Payment (₹ Cr)</TableHead>
+            <TableHead className="font-bold text-gray-700 text-center">Credit (₹ Cr)</TableHead>
+            <TableHead className="font-bold text-gray-700 text-center">Outstanding (₹ Cr)</TableHead>
+            <TableHead className="font-bold text-gray-700 text-center">Unbilled (₹ Cr)</TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>

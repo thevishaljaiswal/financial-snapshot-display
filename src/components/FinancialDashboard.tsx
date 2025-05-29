@@ -1,10 +1,9 @@
-
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import { SummaryCard } from "./SummaryCard";
 import { DetailedTable } from "./DetailedTable";
-import { DollarSign, TrendingUp, AlertCircle, FileText } from "lucide-react";
+import { DollarSign, TrendingUp, AlertCircle, FileText, Info } from "lucide-react";
 
 const orderSummaryData = [
   {
@@ -263,6 +262,12 @@ export function FinancialDashboard() {
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
             Comprehensive overview of your financial transactions and outstanding payments
           </p>
+          
+          {/* Currency Note */}
+          <div className="inline-flex items-center gap-2 bg-blue-50 border border-blue-200 rounded-lg px-4 py-2 text-sm text-blue-700">
+            <Info className="h-4 w-4" />
+            <span className="font-medium">Note: All values are displayed in Crores (₹)</span>
+          </div>
         </div>
 
         {/* Summary Cards */}
